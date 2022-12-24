@@ -28,5 +28,5 @@ jobs:
         run: echo "$JOINED_COMMIT_MESSAGES"
       - name: check skip exist or not
         env:
-          SKIP_EXIST: ${{ !contains(join(github.event.commits.*.message, ', '), '#skip') }}
+          SKIP_EXIST: ${{ contains(join(github.event.commits.*.message, ', '), '#skip') }}
         run: echo "$SKIP_EXIST"
